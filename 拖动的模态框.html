@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div {
+            height: 300px;
+            width: 500px;
+            position: absolute;
+            top: 200px;
+            left: 35%;
+            background-color: #fff;
+        }
+
+        div::before {
+            content: '×';
+            display: block;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击，弹出登录框</button>
+    <div>
+        请输入用户名: <input type="text" name="uname"><br>
+        请输入密码: <input type="password" name="upassword" id=""><br>
+        <input type="submit" value="登录">
+    </div>
+
+</body>
+<script>
+    let div = document.querySelector('div');
+    let btn = document.querySelector('button');
+    div.style.display = 'none';
+    btn.addEventListener('click', function () {
+        div.style.display = 'block';
+        document.body.style.backgroundColor = 'gray';
+    });
+    div.addEventListener('mousedown', function (e) {
+        let x = e.pageX - div.offsetLeft;
+        let y = e.pageY - div.offsetTop;
+        document.addEventListener('mousemove', move);
+        function move(e) {
+            div.style.left = e.pageX - x + 'px';
+            div.style.top = e.pageY - y + 'px';
+        }
+        document.addEventListener('mouseup', function () {
+            document.removeEventListener('mousemove', move);
+        });
+    });
+</script>
+
+</html>
