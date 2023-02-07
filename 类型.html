@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #ccc;
+            margin: 100px auto;
+
+        }
+
+        .box input {
+
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+
+        .box label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label id="eye">&ecy;</label>
+        <input type="password" name="" id="pwd">
+    </div>
+    <script>
+        let eye = document.getElementById('eye');
+        let pwd = document.getElementById('pwd');
+        let flag = 0;
+        eye.onclick = function () {
+            if (flag === 0) {
+                pwd.type = 'text';
+                flag = 1;
+            }
+            else {
+                pwd.type = 'password';
+                flag = 0;
+            }
+
+        }
+        eye.style.color = 'pink';
+    </script>
+</body>
+
+</html>
