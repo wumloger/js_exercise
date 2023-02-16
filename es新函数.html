@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let add = (a, b, c = 8) => {
+            return a + b + c;
+        }
+        console.log(add(1, 2));
+
+        function date(...args) {
+            console.log(args);
+            console.log(arguments);
+        }
+        date('阿娇', '脖子');
+
+        let s1 = Symbol('a');
+        let s2 = Symbol.for('a');
+        let s4 = Symbol.for('a');
+        let s3 = Symbol('a');
+        console.log(s2 === s4);
+
+        function one() {
+            setTimeout(() => {
+                console.log(111);
+                iterator.next();
+            }, 1000);
+        };
+
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                iterator.next();
+            }, 2000)
+        };
+        function three() {
+            setTimeout(() => {
+                console.log(333);
+            }, 3000)
+        };
+        function* gen() {
+            yield one();
+            yield two();
+            yield three();
+        }
+        let iterator = gen();
+        iterator.next();
+    </script>
+</body>
+
+</html>
